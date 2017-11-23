@@ -42,13 +42,18 @@ const defaulStyles = {
     padding: 15,
   },
   title: {
+    fontWeight: 'bold',
     color: '#fff',
     fontSize: 30,
-    paddingBottom: 20,
+    
   },
   description: {
     color: '#fff',
     fontSize: 20,
+  },
+   tip: {
+    color: '#d3d3d3',
+    fontSize: 13,
   },
   controllText: {
     color: '#fff',
@@ -237,6 +242,7 @@ export default class AppIntro extends Component {
     backgroundColor,
     fontColor,
     level,
+    tip
   }) => {
     const AnimatedStyle1 = this.getTransform(index, 10, level);
     const AnimatedStyle2 = this.getTransform(index, 0, level);
@@ -253,6 +259,9 @@ export default class AppIntro extends Component {
           </Animated.View>
           <Animated.View style={AnimatedStyle3.transform}>
             <Text style={[this.styles.description, { color: fontColor }]}>{description}</Text>
+          </Animated.View>
+          <Animated.View style={AnimatedStyle3.transform}>
+           <Text style={this.styles.tip}>{tip}</Text>
           </Animated.View>
         </View>
       </View>
