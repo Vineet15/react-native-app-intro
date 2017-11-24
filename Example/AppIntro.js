@@ -21,35 +21,36 @@ const windowsHeight = Dimensions.get('window').height;
 
 const defaulStyles = {
   header: {
-    flex: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: -40
   },
   pic: {
-    marginTop: 50,
     width: 150,
     height: 150,
   },
   info: {
-    flex: 0.5,
     alignItems: 'center',
-    padding: 30,
+    paddingLeft: 5,
+    paddingRight: 5
   },
   slide: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#9DD6EB',
     padding: 15,
   },
   title: {
     color: '#fff',
-    fontSize: 30,
-    paddingBottom: 20,
+    fontSize: 26,
+    paddingBottom: 10,
   },
   description: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 18,
+  },
+  tip: {
+    color: '#2f4f4f',
+    fontSize: 13,
   },
   controllText: {
     color: '#fff',
@@ -71,7 +72,7 @@ const defaulStyles = {
   },
   paginationContainer: {
     position: 'absolute',
-    bottom: 25,
+    bottom: 10,
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -238,6 +239,7 @@ export default class AppIntro extends Component {
     backgroundColor,
     fontColor,
     level,
+    tip,
   }) => {
     const AnimatedStyle1 = this.getTransform(index, 10, level);
     const AnimatedStyle2 = this.getTransform(index, 0, level);
@@ -254,6 +256,9 @@ export default class AppIntro extends Component {
           </Animated.View>
           <Animated.View style={AnimatedStyle3.transform}>
             <Text style={[this.styles.description, { color: fontColor }]}>{description}</Text>
+          </Animated.View>
+          <Animated.View style={AnimatedStyle3.transform}>
+            <Text style={this.styles.tip}>{tip}</Text>
           </Animated.View>
         </View>
       </View>
@@ -333,9 +338,7 @@ export default class AppIntro extends Component {
       }
     }
 
-    if (this.isToTintStatusBar()) {
-      StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[0].backgroundColor, -0.3), false);
-    }
+
 
     return (
       <View>
@@ -345,9 +348,7 @@ export default class AppIntro extends Component {
           index={this.props.defaultIndex}
           renderPagination={this.renderPagination}
           onMomentumScrollEnd={(e, state) => {
-            if (this.isToTintStatusBar()) {
-              StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
-            }
+
 
             this.props.onSlideChange(state.index, state.total);
           }}
