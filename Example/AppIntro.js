@@ -189,6 +189,7 @@ export default class AppIntro extends Component {
   }
 
   renderPagination = (index, total, context) => {
+    index = Math.ceil(index);
     let isDoneBtnShow;
     let isSkipBtnShow;
     if (index === total - 1) {
