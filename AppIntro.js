@@ -21,8 +21,8 @@ const windowsHeight = Dimensions.get('window').height;
 
 const defaulStyles = {
   header: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     marginTop: -40
   },
   pic: {
@@ -30,7 +30,7 @@ const defaulStyles = {
     height: 150,
   },
   info: {
-    alignItems: 'center',
+
     paddingLeft: 5,
     paddingRight: 5
   },
@@ -40,6 +40,7 @@ const defaulStyles = {
     padding: 15,
   },
   title: {
+    alignSelf: 'center',
     color: '#fff',
     fontSize: 26,
     paddingBottom: 10,
